@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>前航 - 前端导航网站</title>
+    <style>.icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }</style>
+    <link rel="stylesheet" href="style.3bef8ed1.css">
+</head>
+
+<body>
+
+    <header class="globalHeader">
+        <!--使用form表单来构造请求，让点击搜索有效果-->
+        <form class="searchForm" method="GET" action="https://www.baidu.com/s">
+            <!--发出get请求，告诉浏览器用户点击按钮是浏览哪个网页-->
+            <input name="wd" type="text">
+            <!--name=wd，是查询的那个单词-->
+            <button type="submit">搜索</button>
+        </form>
+
+    </header>
+
+    <main class="globalMain">
+        <ul class="siteList">
+            <li class="last">
+                <div class="addButton">
+                    <div class="icon-wrapper">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-add"></use>
+                        </svg>
+                    </div>
+                    <div class="text">新增网站</div>
+                </div>
+            </li>
+        </ul>
+    </main>
+
+    <script src="//at.alicdn.com/t/font_1478935_9q9t4ag8f5o.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.8f80ef9f.js"></script>
+</body>
+
+</html>

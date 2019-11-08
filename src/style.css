@@ -1,0 +1,144 @@
+/* css reset（清除css默认样式）*/
+*{box-sizing: border-box;}
+*:before, *:after{box-sizing: border-box;}/*所有伪元素的盒模型为border-box*/
+*{margin: 0; padding: 0;}
+ul,ol{list-style: none;}/*去掉列表的默认样式*/
+a{color: inherit;text-decoration: none;}/*颜色默认继承，去掉a标签默认样式*/
+img{max-width: 100%;max-height: 100%;}/*最大宽度100%，不能大过你的容器*/
+
+body{background: #eeeeee;}
+
+.globalHeader{
+    margin: 20px;
+}
+
+@media(min-width:500px){
+    .globalHeader{
+    margin: 70px 0 100px;
+}
+}
+
+.searchForm{
+    display: flex;/*flex布局*/
+    justify-content: space-between;/*让header元素分开，；靠两侧*/
+}
+
+@media(min-width:500px){ /*媒体查询，小于500px的宽度，我不管，只管大于的*/
+ .searchForm{
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;/*让搜索框居中，在有最大宽度或宽度固定时使用*/
+ }
+}
+
+.searchForm > input{/*用搜索表单来当原则器，进行flax布局*/
+    width: 100%;
+    margin-right: 20px;/*让input和button中间间隔20px*/
+    height: 40px;
+    padding: 0 10px;/*让用户输入的内容上下边距为0，左右为10px*/
+    border: none;/*去掉border的默认样式*/
+    border-radius: 4px;/*圆角*/
+}
+.searchForm > button{
+    white-space: nowrap;/*让按钮里面的字不会因为input太高而换行*/
+    padding: 0 26px;/*上下边距0，左右边距28px*/
+    border: none;
+    border-radius: 4px;
+    background: #3385FF;
+    color: white;
+    font-size: 18px;
+}
+
+.globalMain{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.siteList{
+        margin: 20px;
+        display: flex;/*让ul元素变成内联元素*/
+        flex-wrap: wrap;/*让flex里面的元素换行*/
+        justify-content: space-between;
+}
+
+@media(min-width:500px){
+    .siteList{
+       margin-left: 0;
+       margin-right: -25px;
+       justify-content: flex-start;
+ }
+}
+
+.siteList > li{
+        margin-bottom: 10px;
+}
+
+@media(min-width:500px){
+   .siteList > li{
+        margin-right: 25px;
+  } 
+}
+
+.siteList .site{
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;/*让两个左右元素变成上下*/
+    background: white;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 20px 0;
+    position: relative;/*在site上相对定位，删除按钮*/
+    cursor: pointer;/*把鼠标变成小手*/
+}
+.siteList .site > .logo{
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;/*让元素左右居中*/
+    align-items: center;/*让元素上下居中*/
+    font-size: 64px;
+    text-transform: uppercase;/*把字母全变成大写，CSS方法*/
+}
+.siteList .site > .link{
+    font-size: 14px;
+    margin-top: 4px;
+}
+.siteList .site > .close{/*绝对定位*/
+    position: absolute; 
+    right: 5px;
+    top: 3px;
+    display: none;/*在开始时隐藏关闭按钮*/
+    cursor: default;/*把鼠标样式变成箭头*/
+}
+
+.siteList .site:hover > .close{ /*siteList的site如果被hover了，就是鼠标悬浮上去了，那么它里面子元素的close就执行下面代码 */
+    display: block;
+}
+.siteList .addButton{
+    width: 160px;
+    border: 1px solid #ddd;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;/*让添加网站的高度等于原来网站的高度，用padding撑起来，不直接写高度*/
+}
+.siteList .addButton .icon{
+    width: 58px;
+    height: 58px;
+}
+.siteList .addButton .text{
+    font-size: 14px;
+    margin-top: 4px;
+}
+.siteList .addButton .icon-wrapper{
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
