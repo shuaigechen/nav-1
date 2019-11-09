@@ -72,17 +72,34 @@ $('.addButton')
         render()
     });
 
-window.onbeforeunload = () => {//用户关闭页面之前触发的api，等于一个函数[在你关闭网页是，会被哈希存到x里]
+window.onbeforeunload = () => {//用户关闭页面之前触发的api，等于一个函数[在你关闭网页时，会被哈希存到x里]
     const string = JSON.stringify(hashMap)//把哈希表变成字符串（JSON是api），因为localStorage只能存字符串
     localStorage.setItem('x', string)//在本地存储里，设置一个x，它的值是刚才存储的字符串
 }
 
-//监听        //键盘按下事件
+$('globalInput').on('input', (e) => {
+    e.stopPropagation()
+})
+
+$(document).on('keypress', (e) => {
+    let { key } = e
+    //console.log(key)
+    for (let i = 0; i < hashMap.length; i++) {
+        if (hashMap[i].logo.toLowerCase === key) {
+            window.open(hashMap[i].url)
+            break
+        }
+    }
+})
+
+/*//监听        //键盘按下事件
 $(document).on('keypress', (e) => {
     const { key } = e    //是 const key = e.key 的简写
     for (let i = 0; i < hashMap.length; i++) { //遍历哈希，看谁的logo 等于 key（输入的字母）
         if (hashMap[i].logo.toLowerCase() === key) { //toLowerCase() 把字母变成小写
             window.open(hashMap[i].url)   //打开哈希 第i个的 url
+            e.stopPropagation()
         }
     }
-})
+})*/
+
